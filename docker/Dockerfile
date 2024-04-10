@@ -1,6 +1,7 @@
 FROM node:20-bookworm
 
-RUN npx -y playwright@1.43.0 install --with-deps
+RUN npm install @playwright/test@1.43.0
+RUN npx playwright install --with-deps
 
 
 COPY . .
