@@ -13,12 +13,16 @@ test('Go To Google', async ({page}) => {
 })
 
 test('Open Application https', async ({page}) => {       
-  await page.goto('https://application-2mcuau.bunnyenv.com/');
+  // Read the URL from the environment variable
+  const testUrl = process.env.TEST_SECURE_URL;
+  await page.goto(testUrl);
   await expect(page).toHaveTitle(/Simple Bootstrap Page/);     
 })
 
-test('Open Application http', async ({page}) => {       
-  await page.goto('http://application:8080/');
+test('Open Application http', async ({page}) => {     
+  // Read the URL from the environment variable
+  const testUrl = process.env.TEST_LOCAL_URL;  
+  await page.goto(testUrl);
   await expect(page).toHaveTitle(/Simple Bootstrap Page/);     
 })
 
